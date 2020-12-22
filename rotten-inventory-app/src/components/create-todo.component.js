@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import "bootstrap/dist/css/bootstrap.min.css";
+import axios from 'axios';
 
 export default class CeateTodo extends Component {
 
@@ -35,7 +35,7 @@ export default class CeateTodo extends Component {
             
         });
     }
-//need to call prevent default to prevent default html behavior 
+//need to call prevent default to prevent default html behavior .
     onSubmit(e) {
         e.preventDefault();
         
@@ -44,6 +44,16 @@ export default class CeateTodo extends Component {
         console.log(`Todo Responsible: ${this.state.todo_responsible}`);
         console.log(`Todo Priority: ${this.state.todo_priority}`);
         console.log(`Todo Completed: ${this.state.todo_completed}`);
+
+        const newTodo = {
+            todo_description: this.state.todo_description,
+            todo_responsible: this.state.todo_responsible,
+            todo_priority: this.state.todo_priority,
+            todo_completed: this.state.todo_completed
+        }
+
+        axios.post('http://localhost:4000/todos/add', newTodo)
+            .then(res => console.log(res.data));
 
         this.setState({
             todo_description: '',
@@ -58,24 +68,24 @@ export default class CeateTodo extends Component {
 
     render() {
         return (
-            <div style={{ marginTop: 20 }}>
-                <h3>Create new todo</h3>
+            <div style={{marginTop: 20}}>
+                <h3>Create New Todo</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
-                        <label>Description:</label>
-                        <input type="text"
-                            className="form-control"
-                            value={this.state.todo_description}
-                            onChange={this.onChangeTodoDescription}
-                            />
+                        <label>Description: </label>
+                        <input  type="text"
+                                className="form-control"
+                                value={this.state.todo_description}
+                                onChange={this.onChangeTodoDescription}
+                                />
                     </div>
                     <div className="form-group">
-                        <label>Repsonsable:</label>
-                        <input type="text"
-                            className="form-control"
-                            value={this.state.todo_responsible}
-                            onChange={this.onChangeTodoResponsible}
-                            />
+                        <label>Responsible: </label>
+                        <input  type="text"
+                                className="form-control"
+                                value={this.state.todo_responsible}
+                                onChange={this.onChangeTodoResponsible}
+                                />
                     </div>
                     <div className="form-group">
                         <div className="form-check form-check-inline">
@@ -83,38 +93,40 @@ export default class CeateTodo extends Component {
                                     type="radio"
                                     name="priorityOptions"
                                     id="priorityLow"
-                                    value='Low'
+                                    value="Low"
                                     checked={this.state.todo_priority==='Low'}
                                     onChange={this.onChangeTodoPriority}
                                     />
-                                <label className="form-check-label">Low</label>
-                                <input  className="form-check-input"
+                            <label className="form-check-label">Low</label>
+                        </div>
+                        <div className="form-check form-check-inline">
+                            <input  className="form-check-input"
                                     type="radio"
                                     name="priorityOptions"
-                                    id="priorityLow"
-                                    value='Med'
-                                    checked={this.state.todo_priority==='Med'}
+                                    id="priorityMedium"
+                                    value="Medium"
+                                    checked={this.state.todo_priority==='Medium'}
                                     onChange={this.onChangeTodoPriority}
                                     />
-                                <label className="form-check-label">Medium</label>
-                                <input  className="form-check-input"
+                            <label className="form-check-label">Medium</label>
+                        </div>
+                        <div className="form-check form-check-inline">
+                            <input  className="form-check-input"
                                     type="radio"
                                     name="priorityOptions"
                                     id="priorityHigh"
                                     value="High"
-                                    checked={this.state.todo_priority=== 'High'}
+                                    checked={this.state.todo_priority==='High'}
                                     onChange={this.onChangeTodoPriority}
                                     />
-                                <label className="form-check-label">High</label>
+                            <label className="form-check-label">High</label>
                         </div>
                     </div>
                     <div className="form-group">
-                        <input type="submit" value="create Todo" className="btn btn-primary"></input>
+                        <input type="submit" value="Create Todo" className="btn btn-primary" />
                     </div>
                 </form>
-                
             </div>
-            
         )
     }
 }
