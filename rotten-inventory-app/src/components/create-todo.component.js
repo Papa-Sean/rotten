@@ -34,7 +34,6 @@ export default class CeateTodo extends Component {
             todo_priority: e.target.value
             
         });
-        console.log(e.target.value)
     }
 //need to call prevent default to prevent default html behavior 
     onSubmit(e) {
@@ -55,6 +54,7 @@ export default class CeateTodo extends Component {
 
 
     }
+    
 
     render() {
         return (
@@ -84,19 +84,17 @@ export default class CeateTodo extends Component {
                                     name="priorityOptions"
                                     id="priorityLow"
                                     value='Low'
-                                    defaultChecked={false}
                                     checked={this.state.todo_priority==='Low'}
-                                    onSubmit={this.onChangeTodoPriority}
+                                    onChange={this.onChangeTodoPriority}
                                     />
                                 <label className="form-check-label">Low</label>
                                 <input  className="form-check-input"
                                     type="radio"
                                     name="priorityOptions"
-                                    id="priorityMedium"
-                                    value='Medium'
-                                    defaultChecked = { false }
+                                    id="priorityLow"
+                                    value='Med'
                                     checked={this.state.todo_priority==='Med'}
-                                    onSubmit={this.onChangeTodoPriority}
+                                    onChange={this.onChangeTodoPriority}
                                     />
                                 <label className="form-check-label">Medium</label>
                                 <input  className="form-check-input"
@@ -104,9 +102,8 @@ export default class CeateTodo extends Component {
                                     name="priorityOptions"
                                     id="priorityHigh"
                                     value="High"
-                                    defaultChecked={false}
-                                    checked={this.state.todo_priority === 'High'}
-                                    onSubmit={this.onChangeTodoPriority}
+                                    checked={this.state.todo_priority=== 'High'}
+                                    onChange={this.onChangeTodoPriority}
                                     />
                                 <label className="form-check-label">High</label>
                         </div>

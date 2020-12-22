@@ -13,7 +13,7 @@ render() {
   return ( 
     <Router>
         <div className="container">
-          <nav className="container navbar navbar-expand-lg navebar-light bg-light">
+          <nav className="container navbar navbar-expand-lg navbar-light bg-light">
             <a className="navbar-brand" href="https://github.com/Papa-Sean" target="_blank">
               <img src={logo} width="30" height="30" alt="Papa's GIT"></img>
             </a>
@@ -24,7 +24,7 @@ render() {
                   <Link to="/" className="nav-link">Todos</Link>
                 </li>
                 <li className="navbar-item">
-                  <Link to="/create" className="nav-link">Creat Todo</Link>
+                  <Link to="/create" className="nav-link">Create Todo</Link>
                 </li>
 
               </ul>
