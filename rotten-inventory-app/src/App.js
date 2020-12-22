@@ -17,14 +17,14 @@ render() {
             <a className="navbar-brand" href="https://github.com/Papa-Sean" target="_blank">
               <img src={logo} width="30" height="30" alt="Papa's GIT"></img>
             </a>
-            <Link to="/" className="navbar-brand">MERN-Stack ROTTEN INVENTORY</Link>
+            <Link to="/" className="navbar-brand">ROTTEN INVENTORY</Link>
             <div className="colllapse nav-collapse">
               <ul className="navbar-nav mr-auto">
                 <li className="navbar-item">
-                  <Link to="/" className="nav-link">Todos</Link>
+                  <Link to="/" className="nav-link">INVENTORY MASTER</Link>
                 </li>
                 <li className="navbar-item">
-                  <Link to="/create" className="nav-link">Create Todo</Link>
+                  <Link to="/create" className="nav-link">ADD TO INVENTORY</Link>
                 </li>
 
               </ul>
@@ -33,7 +33,7 @@ render() {
           
         
           <div>
-            <h2>MERN-Stack Rotten App</h2>     
+            <h2>Rotten Iventory App</h2>     
             <Route path="/" exact component={TodosList} />
             <Route path="/edit/:id" component={EditTodo} />
             <Route path="/create" component={CreateTodo} />

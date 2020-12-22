@@ -72,10 +72,10 @@ onSubmit(e) {
     render() {
         return (
             <div>
-                <h3>Update Todo</h3>
+                <h3>Update Inventory</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
-                        <label>Description: </label>
+                        <label>Item: </label>
                         <input type="text"
                                 className="form-control"
                                 value={this.state.todo_description}
@@ -83,7 +83,7 @@ onSubmit(e) {
                                 />
                     </div>
                     <div className="form-group">
-                        <label>Responsible: </label>
+                        <label>Style: </label>
                         <input type="text"
                                 className="form-control"
                                 value={this.state.todo_responsible}
@@ -96,33 +96,33 @@ onSubmit(e) {
                                     type="radio"
                                     name="priorityOptions"
                                     id="priorityLow"
-                                    value="Low"
-                                    checked={this.state.todo_priority==='Low'}
+                                    value="SM"
+                                    checked={this.state.todo_priority==='SM'}
                                     onChange={this.onChangeTodoPriority}
                                     />
-                            <label className="form-check-label">Low</label>
+                            <label className="form-check-label">SM</label>
                         </div>
                         <div className="form-check form-check-inline">
                             <input  className="form-check-input"
                                     type="radio"
                                     name="priorityOptions"
                                     id="priorityMedium"
-                                    value="Medium"
-                                    checked={this.state.todo_priority==='Medium'}
+                                    value="MD"
+                                    checked={this.state.todo_priority==='MD'}
                                     onChange={this.onChangeTodoPriority}
                                     />
-                            <label className="form-check-label">Medium</label>
+                            <label className="form-check-label">MD</label>
                         </div>
                         <div className="form-check form-check-inline">
                             <input  className="form-check-input"
                                     type="radio"
                                     name="priorityOptions"
                                     id="priorityHigh"
-                                    value="High"
-                                    checked={this.state.todo_priority==='High'}
+                                    value="LG"
+                                    checked={this.state.todo_priority==='LG'}
                                     onChange={this.onChangeTodoPriority}
                                     />
-                            <label className="form-check-label">High</label>
+                            <label className="form-check-label">LG</label>
                         </div>
                         <div className="form-check">
                             <input type="checkbox"
@@ -134,12 +134,12 @@ onSubmit(e) {
                                     value={this.state.todo_completed}
                                     />
                             <label className="form-check-label" htmlFor="completedCheckbox">
-                                Completed
+                                SOLD
                             </label>
                         </div>
                         <br/>
                         <div className="form-group">
-                        <input type="submit" value="Update TODO" className="btn btn-primary" />
+                        <input type="submit" value="EDIT/SOLD" className="btn btn-primary" />
                     </div>
                     </div>
                 </form>
